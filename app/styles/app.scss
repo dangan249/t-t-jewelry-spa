@@ -1,6 +1,13 @@
 @import 'bower_components/foundation/scss/normalize';
 @import 'bower_components/foundation/scss/foundation';
+@import 'bower_components/foundation/scss/foundation/_settings';
 
-html, body {
-  margin: 20px;
+.filters {
+  ul {
+    list-style: none;
+  }
+}
+
+main {
+  margin-top: 10px;
 }

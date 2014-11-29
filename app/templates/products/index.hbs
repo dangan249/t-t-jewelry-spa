@@ -1,0 +1,44 @@
+<div class="row">
+
+  <div class="large-4 small-12 columns filters">
+    <div class="hide-for-small panel">
+      <h3>Filters</h3>
+      <ul> <strong>Category</strong>
+        <li><input type="checkbox" value="watch"/> Watch</li>
+        <li><input type="checkbox" value="jewelry"/> Jewelry</li>
+      </ul>
+      <ul> <strong>Gender</strong>
+        <li><input type="checkbox" value="male"/> Male</li>
+        <li><input type="checkbox" value="female"/> Female</li>
+      </ul>
+      <ul>  <strong>Price Range</strong> </br>
+        From </br>
+        <li><input type="text"/></li>
+        To </br>
+        <li><input type="text"/></li>
+      </ul>
+    </div>
+    <div class="panel callout radius">
+      <h6>Clear filters</h6>
+    </div>
+  </div>
+
+  <div class="large-8 columns">
+    <div class="row">
+      {{#each}}
+        <div class="large-4 small-6 columns">
+          {{#link-to 'product' this}}
+            <img {{bind-attr src=image_url alt=name}}/>
+          {{/link-to}}
+          <div class="panel">
+            <h5>{{name}}</h5>
+            <h6 class="subheader">${{price}}</h6>
+          </div>
+        </div>
+      {{else}}
+        <li>No products found.</li>
+      {{/each}}
+      {{page-numbers content=content}}
+    </div>
+  </div>
+</div>
