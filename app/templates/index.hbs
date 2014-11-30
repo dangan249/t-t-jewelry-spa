@@ -6,10 +6,10 @@
   <div class="small-6 large-centered columns text-center">
     <ul class="button-group">
       <li>
-        {{#link-to 'products' class="success large radius button"}}Jewelry{{/link-to}}
+        {{#link-to 'products' (query-params category="jewelry") class="success large radius button" }}Jewelry{{/link-to}}
       </li>
       <li>
-        {{#link-to 'products' class="success large radius button"}}Watch{{/link-to}}
+        {{#link-to 'products' (query-params category="watch") class="success large radius button" }}Watch{{/link-to}}
       </li>
     </ul>
   </div>
