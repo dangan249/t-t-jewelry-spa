@@ -6,7 +6,11 @@ export default Ember.Component.extend({
 
   actions: {
     search: function() {
-      this.sendAction('action', this.get('emptySearchQuery') ? null : this.get('searchQuery'));
+      if (this.get('emptySearchQuery')) {
+        alert('Search Field Cannot Be Blank');
+      } else {
+        this.sendAction('action', this.get('searchQuery'));
+      }
     }
   },
 

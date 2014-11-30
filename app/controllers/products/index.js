@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
-  needs: ['application'],
-
   // setup our query params
   queryParams: ["page", "perPage", "category", "brand", "gender", "query"],
 
@@ -10,27 +8,17 @@ export default Ember.ArrayController.extend({
   brand: null,
   gender: null,
   category: null,
+  unFilteredProducts: Ember.computed.alias('model'),
+
   products: function() {
-    var products = this.get('model');
-    var query = this.get('query');
+    var query, unFilteredProducts, result;
 
-    if (query) {
-      products = this.store.find('product', {query: query})
-    }
+    query = this.get('query');
+    unFilteredProducts = this.get('unFilteredProducts');
 
-    return products;
-  }.property('model', 'query'),
-
-  // binding the property on the paged array
-  // to the query params on the controller
-  pageBinding: "content.page",
-  perPageBinding: "content.perPage",
-  totalPagesBinding: "content.totalPages",
-
-  // optional. Don't serialize default values
-  // into the URL
-  page: 1,
-  perPage: 9,
+    result = query ? this.store.find('product', {query: query}) : unFilteredProducts;
+    return result;
+  }.property('unFilteredProducts','query'),
 
   actions: {
     search: function (searchQuery) {

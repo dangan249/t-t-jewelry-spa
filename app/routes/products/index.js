@@ -1,10 +1,9 @@
 import Ember from 'ember';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default Ember.Route.extend(RouteMixin, {
+export default Ember.Route.extend({
   perPage: 9,
 
   model: function(params) {
-    return this.findPaged('product', params);
+    return  this.store.find('product', params);
   }
 });
