@@ -1,0 +1,26 @@
+<h3>Filters</h3>
+<ul> <strong>Category</strong>
+  <li><input type="radio"  name="category" value="watch"/> Watch</li>
+  <li><input type="radio"  name="category" value="jewelry"/> Jewelry</li>
+</ul>
+<ul> <strong>Gender</strong>
+  <li><input type="radio"  name="gender" value="male"/> Male</li>
+  <li><input type="radio"  name="gender" value="female"/> Female</li>
+</ul>
+{{#each filter in dynamicFilters}}
+  <ul>  <strong>{{filter.filterName}}</strong> </br>
+    {{#each option in filter.options}}
+      <li>{{option.name}}</li>
+    {{/each}}
+  </ul>
+{{/each}}
+<ul>  <strong>Price Range</strong> </br>
+  From </br>
+  <li><input type="text"/></li>
+  To </br>
+  <li><input type="text"/></li>
+</ul>
+
+<div class="panel callout radius">
+  <h6>Clear filters</h6>
+</div>

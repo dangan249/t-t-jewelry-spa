@@ -5,8 +5,6 @@ export default Ember.Route.extend(RouteMixin, {
   perPage: 9,
 
   model: function(params) {
-    // todo is your model name
-    // returns a PagedRemoteArray
-    return this.findPaged('product',params);
+    return this.findPaged('product', params);
   }
 });

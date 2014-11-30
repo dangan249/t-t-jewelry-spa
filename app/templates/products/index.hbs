@@ -1,28 +1,15 @@
-<div class="row">
+<div class="row hide-for-small">
+  <div class="small-6 large-centered columns">
+    {{search-box action='search' value=searchBoxValue placeholder='Enter Item Name'}}
+  </div>
+</div>
 
-  <div class="large-4 small-12 columns filters">
-    <div class="hide-for-small panel">
-      <h3>Filters</h3>
-      <ul> <strong>Category</strong>
-        <li><input type="radio"  name="category" value="watch"/> Watch</li>
-        <li><input type="radio"  name="category" value="jewelry"/> Jewelry</li>
-      </ul>
-      <ul> <strong>Gender</strong>
-        <li><input type="radio"  name="gender" value="male"/> Male</li>
-        <li><input type="radio"  name="gender" value="female"/> Female</li>
-      </ul>
-      <ul>  <strong>Price Range</strong> </br>
-        From </br>
-        <li><input type="text"/></li>
-        To </br>
-        <li><input type="text"/></li>
-      </ul>
-    </div>
-    <div class="panel callout radius">
-      <h6>Clear filters</h6>
+<div class="row">
+  <div class="large-4 columns filter hide-for-small ">
+    <div class="panel">
+      {{product-filter }}
     </div>
   </div>
-
   <div class="large-8 columns">
     <div class="row">
       {{#each}}
@@ -36,9 +23,11 @@
           </div>
         </div>
       {{else}}
-        <li>No products found.</li>
+        <p class="alert-box radius info text-center">No products found.</p>
       {{/each}}
-      {{page-numbers content=content}}
     </div>
+    {{#if products}}
+      {{page-numbers content=content}}
+    {{/if}}
   </div>
 </div>
