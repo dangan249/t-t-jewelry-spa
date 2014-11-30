@@ -6,11 +6,20 @@ export default Ember.ArrayController.extend({
   // setup our query params
   queryParams: ["page", "perPage", "category", "brand", "gender", "query"],
 
-  query: '',
-  brand: '',
-  gender: '',
-  category: '',
-  products: Ember.computed.alias('model'),
+  query: null,
+  brand: null,
+  gender: null,
+  category: null,
+  products: function() {
+    var products = this.get('model');
+    var query = this.get('query');
+
+    if (query) {
+      products = this.store.find('product', {query: query})
+    }
+
+    return products;
+  }.property('model', 'query'),
 
   // binding the property on the paged array
   // to the query params on the controller
@@ -24,8 +33,8 @@ export default Ember.ArrayController.extend({
   perPage: 9,
 
   actions: {
-    search: function (query) {
-      this.set('query', query);
+    search: function (searchQuery) {
+      this.set('query', searchQuery);
     }
   }
 });

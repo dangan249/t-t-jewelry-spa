@@ -1,6 +1,6 @@
 <div class="row hide-for-small">
   <div class="small-6 large-centered columns">
-    {{search-box action='search' value=searchBoxValue placeholder='Enter Item Name'}}
+    {{search-box placeholder='Enter Item Name' action='search'}}
   </div>
 </div>
 
@@ -12,14 +12,14 @@
   </div>
   <div class="large-8 columns">
     <div class="row">
-      {{#each}}
+      {{#each product in products}}
         <div class="large-4 small-6 columns">
-          {{#link-to 'product' this}}
-            <img {{bind-attr src=image_url alt=name}}/>
+          {{#link-to 'product' product}}
+            <img {{bind-attr src=product.image_url alt=product.name}}/>
           {{/link-to}}
           <div class="panel">
-            <h5>{{name}}</h5>
-            <h6 class="subheader">${{price}}</h6>
+            <h5>{{product.name}}</h5>
+            <h6 class="subheader">${{product.price}}</h6>
           </div>
         </div>
       {{else}}
