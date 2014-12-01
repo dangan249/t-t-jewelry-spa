@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-var Product = DS.Model.extend({
+export default DS.Model.extend({
   name: DS.attr('string'),
   image_url: DS.attr('string'),
   gender: DS.attr('string'),
@@ -8,5 +8,3 @@ var Product = DS.Model.extend({
   brand: DS.attr('string'),
   price: DS.attr('number')
 });
-
-export default Product;

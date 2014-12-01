@@ -1,5 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  dynamicFilters: []
+  actions: {
+    filterPriceRange: function(){
+      console.log(this.get('filterBrands'));
+    }
+  }
 });

@@ -6,9 +6,8 @@ export default Ember.ArrayController.extend({
 
   query: null,
   brand: null,
-  gender: null,
+  gender: '',
   category: null,
-  unFilteredProducts: Ember.computed.alias('model'),
 
   // TODO: this somehow cause 2 request when loaded
   products: function() {
@@ -19,7 +18,7 @@ export default Ember.ArrayController.extend({
     gender = this.get('gender');
     category = this.get('category');
 
-    unFilteredProducts = this.get('unFilteredProducts');
+    unFilteredProducts = this.get('model');
 
     result = (query || brand || gender || category) ?
       this.store.find('product', {
@@ -28,8 +27,16 @@ export default Ember.ArrayController.extend({
         category: category,
         gender: gender
       }) : unFilteredProducts;
+
     return result;
-  }.property('unFilteredProducts','query', 'category', 'brand', 'genger'),
+  }.property('model','query', 'category', 'brand', 'gender'),
+
+  brands: function () {
+   var result = this.store.find('brand', {
+      category: this.get('category')
+    });
+    return result;
+  }.property('products', 'category'),
 
   actions: {
     search: function (searchQuery) {

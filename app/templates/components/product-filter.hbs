@@ -1,19 +1,32 @@
 <h3>Filters</h3>
 <ul> <strong>Category</strong>
-  <li><input type="radio"  name="category" value="watch"/> Watch</li>
-  <li><input type="radio"  name="category" value="jewelry"/> Jewelry</li>
+  <li>
+    {{radio-button value='watch' checked=filterCategory}} Watch
+  </li>
+  <li>
+    {{radio-button value='jewelry' checked=filterCategory}} Jewelry
+  </li>
 </ul>
 <ul> <strong>Gender</strong>
-  <li><input type="radio"  name="gender" value="male"/> Male</li>
-  <li><input type="radio"  name="gender" value="female"/> Female</li>
+  <li>
+    {{radio-button value='male' checked=filterGender}} Male
+  </li>
+  <li>
+    {{radio-button value='female' checked=filterGender}} Female
+  </li>
+  <li>
+    {{radio-button value='' checked=filterGender}} All Genders
+  </li>
 </ul>
-{{#each filter in dynamicFilters}}
-  <ul>  <strong>{{filter.filterName}}</strong> </br>
-    {{#each option in filter.options}}
-      <li>{{option.name}}</li>
-    {{/each}}
+{{#if filterBrands}}
+  <ul> <strong>Brand</strong>
+  {{#each brand in filterBrands}}
+    <li>
+      {{radio-button value=brand.name checked=filterBrand}} {{brand.name}}
+    </li>
+  {{/each}}
   </ul>
-{{/each}}
+{{/if}}
 <ul>  <strong>Price Range</strong> </br>
   From </br>
   <li><input type="text"/></li>
@@ -21,6 +34,6 @@
   <li><input type="text"/></li>
 </ul>
 
-<div class="panel callout radius">
-  <h6>Clear filters</h6>
+<div class="radius button" {{action 'filterPriceRange'}}>
+  Apply Price Range
 </div>

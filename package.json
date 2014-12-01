@@ -33,6 +33,7 @@
     "glob": "^4.0.5"
   },
   "dependencies": {
-    "ember-cli-pagination": "^0.5.2"
+    "ember-cli-pagination": "^0.5.2",
+    "ember-radio-buttons": "^2.1.0"
   }
 }
