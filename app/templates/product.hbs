@@ -4,22 +4,23 @@
     <img {{bind-attr src=image_url alt=name}}/>
   </div>
   <div class="large-7 columns">
-    <h4>Item details</h4>
-    {{#each value in values}}
-      <h6>{{value.name}}</h6>
-      <p>{{value.value}}</p>
-    {{/each}}
+    <div class="row">
+      <strong>Name:</strong> {{name}} <br>
+      <strong>Price:</strong> {{price}} <br>
+      <strong>Brand:</strong> {{brand}} <br>
+      <strong>Gender:</strong> {{gender}} <br>
+      <strong>Category:</strong> {{category}} <br>
+    </div>
   </div>
 </div>
 <div class="row">
   <hr>
   <div class="large-6 columns">
-    <h4>This is a content section.</h4>
-    <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-  </div>
-  <div class="large-6 columns">
-    <h4>This is a content section.</h4>
-    <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+    <h4><strong>Other details</strong></h4>
+    {{#each value in values}}
+      <h5>{{value.name}}</h5>
+      <p>{{value.value}}</p>
+    {{/each}}
   </div>
 </div>
 <div class="row">
