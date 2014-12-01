@@ -27,9 +27,8 @@
   <hr>
   <div class="large-12 columns">
     <h4>You might also like:</h4>
-    <img src="http://placehold.it/200x150&amp;text=[img]">
-    <img src="http://placehold.it/200x150&amp;text=[img]">
-    <img src="http://placehold.it/200x150&amp;text=[img]">
-    <img src="http://placehold.it/200x150&amp;text=[img]">
+    {{#each product in relatedProducts}}
+      <img {{bind-attr src=product.thumbnail_url alt=product.name}}/>
+    {{/each}}
   </div>
 </div>
