@@ -6,5 +6,6 @@ export default DS.Model.extend({
   gender: DS.attr('string'),
   category: DS.attr('string'),
   brand: DS.attr('string'),
-  price: DS.attr('number')
+  price: DS.attr('number'),
+  values: DS.hasMany('values')
 });
